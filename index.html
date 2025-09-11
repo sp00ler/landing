@@ -22,18 +22,17 @@
       theme: {
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Segoe UI', 'Roboto'] },
-          colors: {
-            indigo: { 600: '#4F46E5' },
-            amber: { 400: '#FBBF24' },
-          }
         }
       }
     }
   </script>
   <style>
     html { scroll-behavior: smooth; }
+    /* Simple fade-in */
     .fade-in { animation: fadeIn .6s ease both; }
     @keyframes fadeIn { from {opacity:0; transform: translateY(6px)} to {opacity:1; transform: translateY(0)} }
+    /* Chat panel backdrop blur on mobile */
+    .backdrop { backdrop-filter: blur(6px) saturate(1.1); }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -105,6 +104,7 @@
         <p class="mt-3 text-gray-600">Выберите тип работы — остальное мы сделаем.</p>
       </div>
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Cards -->
         <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-semibold">Курсовые и дипломные</h3>
           <p class="mt-1 text-gray-600">Структура, источники, методичка — всё по требованиям кафедры.</p>
@@ -186,7 +186,7 @@
         <textarea name="text" rows="3" placeholder="Ваш отзыв" class="mt-4 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400"></textarea>
         <div class="mt-4 flex items-center justify-between gap-3">
           <span class="text-xs text-gray-500">Публикуем после модерации</span>
-          <button class="rounded-xl bg-gray-900 text-white px-5 py-2.5 text-sm font-semibold hover:bg-gray-800" type="submit">Отправить</button>
+          <button class="rounded-xl bg-gray-900 text-white px-5 py-2.5 text-sm font-semibold hover:bg-gray-800">Отправить</button>
         </div>
       </form>
     </div>
@@ -200,6 +200,7 @@
         <p class="mt-3 text-gray-600">Коротко о главном: законность, уникальность и правки.</p>
       </div>
       <div class="mt-8 divide-y divide-gray-200 rounded-2xl border border-gray-200">
+        <!-- Item -->
         <details class="group p-6" open>
           <summary class="flex cursor-pointer list-none items-center justify-between font-medium">Это законно?<span class="ml-4 text-gray-400 group-open:rotate-180 transition">⌄</span></summary>
           <p class="mt-2 text-gray-600">Мы предоставляем образцы для учебных целей. Вы самостоятельно определяете, как их использовать с учётом правил вашего вуза.</p>
@@ -233,7 +234,7 @@
           <li>• Быстрее всего: напишите боту <a class='underline' href='https://t.me/studyHelplessBot' target='_blank'>@studyHelplessBot</a> один раз — сайт сам привяжет чат и начнёт слать заявки</li>
         </ul>
       </div>
-      <form id="leadForm" class="rounded-2xl bg-white p-6 sm:p-8 shadow-xl">
+      <form id="leadForm" onsubmit="return false" action="javascript:void(0);" class="rounded-2xl bg-white p-6 sm:p-8 shadow-xl">
         <h3 class="text-xl font-semibold">Заявка на расчёт стоимости</h3>
         <div class="mt-4 grid gap-4 sm:grid-cols-2">
           <div class="sm:col-span-2">
@@ -289,7 +290,7 @@
           </div>
         </div>
         <label class="mt-4 flex items-start gap-3 text-sm text-gray-600"><input type="checkbox" required class="mt-1"> Согласен(на) с обработкой данных и политикой конфиденциальности</label>
-        <button class="mt-6 w-full rounded-xl bg-amber-400 px-6 py-3 font-semibold text-gray-900 shadow hover:shadow-lg transition" type="submit">Отправить заявку</button>
+        <button class="mt-6 w-full rounded-xl bg-amber-400 px-6 py-3 font-semibold text-gray-900 shadow hover:shadow-lg transition">Отправить заявку</button>
         <p class="mt-3 text-xs text-gray-500">Анонимность и защита данных. Ответим как можно скорее.</p>
       </form>
     </div>
@@ -326,175 +327,193 @@
 
   <!-- Floating Chat Widget -->
   <div id="chatWidget" class="fixed bottom-5 right-5 z-50">
+    <!-- Expanded panel -->
     <div id="chatPanel" class="hidden fade-in mb-3 w-72 sm:w-80 rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
       <div class="px-4 py-3 bg-indigo-600 text-white flex items-center justify-between">
         <div class="font-semibold">Онлайн-чат</div>
         <button id="closePanel" class="opacity-80 hover:opacity-100" aria-label="Закрыть">✕</button>
       </div>
       <div class="p-4 space-y-3">
+        <!-- Telegram -->
         <a id="tgLink" href="https://t.me/prihodkods" target="_blank" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
           <div class="flex items-center gap-3"><span class="text-xl">📨</span>
-            <div><div class="font-medium">Telegram</div><div class="text-xs text-gray-500">Написать менеджеру</div></div>
+            <div>
+              <div class="font-medium">Telegram</div>
+              <div class="text-xs text-gray-500">Написать менеджеру</div>
+            </div>
           </div>
           <span class="text-sm font-semibold text-indigo-600">Открыть</span>
         </a>
-        <a id="waLink" href="https://wa.me/79138110841?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%83." target="_blank" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
+        <!-- WhatsApp -->
+        <a id="waLink" href="https://wa.me/79138110841?text=Здравствуйте!%20Хочу%20заказать%20работу." target="_blank" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
           <div class="flex items-center gap-3"><span class="text-xl">💬</span>
-            <div><div class="font-medium">WhatsApp</div><div class="text-xs text-gray-500">Быстрый ответ 24/7</div></div>
+            <div>
+              <div class="font-medium">WhatsApp</div>
+              <div class="text-xs text-gray-500">Быстрый ответ 24/7</div>
+            </div>
           </div>
           <span class="text-sm font-semibold text-indigo-600">Открыть</span>
         </a>
-        <a href="mailto:prihodkods@mail.ru?subject=%D0%97%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
+        <!-- Email fallback -->
+        <a href="mailto:prihodkods@mail.ru?subject=Заявка%20на%20работу" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
           <div class="flex items-center gap-3"><span class="text-xl">✉️</span>
-            <div><div class="font-medium">Email</div><div class="text-xs text-gray-500">prihodkods@mail.ru</div></div>
+            <div>
+              <div class="font-medium">Email</div>
+              <div class="text-xs text-gray-500">prihodkods@mail.ru</div>
+            </div>
           </div>
           <span class="text-sm font-semibold text-indigo-600">Написать</span>
         </a>
+        <p class="text-[11px] text-gray-500">Совет: замените ссылки в виджете на свои контакты. Можно подключить сторонний виджет (Crisp, Tawk.to) — см. комментарии в коде.</p>
       </div>
     </div>
+    <!-- Launcher button -->
     <button id="chatLauncher" class="rounded-full bg-indigo-600 text-white h-14 w-14 shadow-xl hover:shadow-2xl flex items-center justify-center text-2xl" aria-label="Открыть чат">💬</button>
   </div>
 
   <!-- Toast -->
   <div id="toast" class="hidden fixed bottom-24 right-5 z-50 rounded-xl bg-gray-900 text-white px-4 py-3 text-sm shadow-lg">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
 
-  <!-- Core Script -->
+  <!-- Scripts -->
   <script>
-    // === Core script (no template literals; safe for GH Pages) ===
-    (function(){
-      try {
-        // Year in footer
-        var yEl = document.getElementById('year');
-        if (yEl) yEl.textContent = new Date().getFullYear();
+  // === Core script (no template literals; safe for GH Pages) ===
+  (function(){
+    try {
+      // Year in footer
+      var yEl = document.getElementById('year');
+      if (yEl) yEl.textContent = new Date().getFullYear();
 
-        // Contacts
-        var EMAIL_TO = 'prihodkods@mail.ru';
-        var TELEGRAM_USERNAME = 'prihodkods';
-        var WHATSAPP_PHONE = '79138110841';
+      // Contacts
+      var EMAIL_TO = 'prihodkods@mail.ru';
+      var TELEGRAM_USERNAME = 'prihodkods';
+      var WHATSAPP_PHONE = '79138110841';
 
-        // Telegram Bot (move to serverless for prod)
-        var TG_BOT_TOKEN = '8053132638:AAEfZwrb26W6Vlh1XOXnxT07tE0eoCD3rCU';
-        var TG_CHAT_ID = localStorage.getItem('tg_chat_id') || 'AUTO_DISCOVER';
+      // Telegram Bot (for production move to serverless)
+      var TG_BOT_TOKEN = '8053132638:AAEfZwrb26W6Vlh1XOXnxT07tE0eoCD3rCU';
+      var TG_CHAT_ID = localStorage.getItem('tg_chat_id') || 'AUTO_DISCOVER';
 
-        function getChatId(){
-          return new Promise(function(resolve){
-            if (TG_CHAT_ID !== 'AUTO_DISCOVER') return resolve(TG_CHAT_ID);
-            fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/getUpdates')
-              .then(function(resp){ return resp.ok ? resp.json() : Promise.reject(resp.status); })
-              .then(function(data){
-                var updates = (data.result || []).reverse();
-                for (var i=0;i<updates.length;i++){
-                  var u = updates[i];
-                  var chat = (u.message && u.message.chat) || (u.channel_post && u.channel_post.chat) || (u.my_chat_member && u.my_chat_member.chat);
-                  if (chat && chat.id){
-                    TG_CHAT_ID = String(chat.id);
-                    localStorage.setItem('tg_chat_id', TG_CHAT_ID);
-                    return resolve(TG_CHAT_ID);
-                  }
+      function getChatId(){
+        return new Promise(function(resolve){
+          if (TG_CHAT_ID !== 'AUTO_DISCOVER') return resolve(TG_CHAT_ID);
+          fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/getUpdates')
+            .then(function(resp){ return resp.ok ? resp.json() : Promise.reject(resp.status); })
+            .then(function(data){
+              var updates = (data.result || []).reverse();
+              for (var i=0;i<updates.length;i++){
+                var u = updates[i];
+                var chat = (u.message && u.message.chat) || (u.channel_post && u.channel_post.chat) || (u.my_chat_member && u.my_chat_member.chat);
+                if (chat && chat.id){
+                  TG_CHAT_ID = String(chat.id);
+                  localStorage.setItem('tg_chat_id', TG_CHAT_ID);
+                  return resolve(TG_CHAT_ID);
                 }
-                resolve(null);
-              }).catch(function(){ resolve(null); });
-          });
-        }
-
-        // Reviews form (client-side preview)
-        var reviewForm = document.getElementById('reviewForm');
-        if (reviewForm) reviewForm.addEventListener('submit', function(e){
-          e.preventDefault(); e.stopPropagation();
-          var data = new FormData(reviewForm);
-          var name = data.get('name') || 'Аноним';
-          var uni  = data.get('university') || '';
-          var text = data.get('text');
-          if (!text) return;
-          var fig = document.createElement('figure');
-          fig.className = 'rounded-2xl bg-white p-6 border border-gray-200 shadow-sm fade-in';
-          fig.innerHTML = '<blockquote class="text-gray-700"></blockquote><figcaption class="mt-3 text-sm text-gray-500"></figcaption>';
-          fig.querySelector('blockquote').textContent = '«' + text + '»';
-          fig.querySelector('figcaption').textContent = uni ? (name + ', ' + uni) : name;
-          var grid = document.getElementById('reviewsGrid');
-          if (grid) grid.prepend(fig);
-          reviewForm.reset();
-          showToast('Спасибо за отзыв!');
+              }
+              resolve(null);
+            })
+            .catch(function(){ resolve(null); });
         });
-
-        // Lead form → Telegram bot → fallback email
-        var leadForm = document.getElementById('leadForm');
-        if (leadForm) leadForm.addEventListener('submit', function(e){
-          e.preventDefault(); e.stopPropagation();
-          var form = new FormData(leadForm);
-          var p = {}; form.forEach(function(v,k){ p[k]=v; });
-
-          var lines = [
-            '📝 Заявка на расчёт',
-            'Тип: ' + (p.workType || '-'),
-            'Предмет: ' + (p.subject || '-'),
-            'Дедлайн: ' + (p.deadline || '-'),
-            'Объём: ' + (p.pages || '-') + ' стр.',
-            'Уникальность: ' + (p.unique || '-') + '%',
-            'Связаться: ' + (p.contact || '-') + ' — ' + (p.contactValue || '-'),
-            '',
-            'Тема/описание:',
-            (p.topic || '-')
-          ];
-          var msg = lines.join('\n');
-
-          function fallbackEmail(){
-            var subject = encodeURIComponent('Заявка на расчёт — StudyHelp');
-            var body    = encodeURIComponent(msg);
-            window.location.href = 'mailto:' + EMAIL_TO + '?subject=' + subject + '&body=' + body;
-            showToast('Чтобы получать заявки в Telegram, напишите боту @studyHelplessBot и отправьте снова. Открыли письмо как резерв.');
-          }
-
-          var chatPromise = (TG_CHAT_ID === 'AUTO_DISCOVER') ? getChatId() : Promise.resolve(TG_CHAT_ID);
-          chatPromise.then(function(chatId){
-            if (!chatId) return fallbackEmail();
-            fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ chat_id: chatId, text: msg, disable_web_page_preview: true })
-            }).then(function(res){
-              if (res.ok){ showToast('Заявка отправлена в Telegram!'); leadForm.reset(); }
-              else fallbackEmail();
-            }).catch(function(){ fallbackEmail(); });
-          });
-        });
-
-        function showToast(msg){
-          var t = document.getElementById('toast');
-          if (!t) return; t.textContent = msg; t.classList.remove('hidden');
-          setTimeout(function(){ t.classList.add('hidden'); }, 4200);
-        }
-
-        // Chat widget behavior
-        var launcher = document.getElementById('chatLauncher');
-        var panel = document.getElementById('chatPanel');
-        var closePanel = document.getElementById('closePanel');
-        if (launcher && panel) launcher.addEventListener('click', function(){ panel.classList.toggle('hidden'); });
-        if (closePanel && panel) closePanel.addEventListener('click', function(){ panel.classList.add('hidden'); });
-
-        // Update external chat links
-        var tgLink = document.getElementById('tgLink');
-        if (tgLink) tgLink.href = 'https://t.me/' + TELEGRAM_USERNAME;
-        var waLink = document.getElementById('waLink');
-        if (waLink) waLink.href = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Хочу заказать работу.');
-      } catch (err) {
-        console.error('Init error:', err);
       }
-    })();
-  </script>
 
+      // Reviews form (client-side preview)
+      var reviewForm = document.getElementById('reviewForm');
+      if (reviewForm) reviewForm.addEventListener('submit', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var data = new FormData(reviewForm);
+        var name = data.get('name') || 'Аноним';
+        var uni  = data.get('university') || '';
+        var text = data.get('text');
+        if (!text) return;
+        var fig = document.createElement('figure');
+        fig.className = 'rounded-2xl bg-white p-6 border border-gray-200 shadow-sm fade-in';
+        fig.innerHTML = '<blockquote class="text-gray-700"></blockquote><figcaption class="mt-3 text-sm text-gray-500"></figcaption>';
+        fig.querySelector('blockquote').textContent = '«' + text + '»';
+        fig.querySelector('figcaption').textContent = uni ? (name + ', ' + uni) : name;
+        var grid = document.getElementById('reviewsGrid');
+        if (grid) grid.prepend(fig);
+        reviewForm.reset();
+        showToast('Спасибо за отзыв!');
+      });
+
+      // Lead form → Telegram bot → fallback email
+      var leadForm = document.getElementById('leadForm');
+      if (leadForm) leadForm.addEventListener('submit', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var form = new FormData(leadForm);
+        var p = {};
+        form.forEach(function(v,k){ p[k]=v; });
+
+        var lines = [
+          '📝 Заявка на расчёт',
+          'Тип: ' + (p.workType || '-'),
+          'Предмет: ' + (p.subject || '-'),
+          'Дедлайн: ' + (p.deadline || '-'),
+          'Объём: ' + (p.pages || '-') + ' стр.',
+          'Уникальность: ' + (p.unique || '-') + '%',
+          'Связаться: ' + (p.contact || '-') + ' — ' + (p.contactValue || '-'),
+          '',
+          'Тема/описание:',
+          (p.topic || '-')
+        ];
+        var msg = lines.join('
+');
+
+        function fallbackEmail(){
+          var subject = encodeURIComponent('Заявка на расчёт — StudyHelp');
+          var body    = encodeURIComponent(msg);
+          window.location.href = 'mailto:' + EMAIL_TO + '?subject=' + subject + '&body=' + body;
+          showToast('Чтобы получать заявки в Telegram, напишите боту @studyHelplessBot и отправьте снова. Открыли письмо как резерв.');
+        }
+
+        var chatPromise = (TG_CHAT_ID === 'AUTO_DISCOVER') ? getChatId() : Promise.resolve(TG_CHAT_ID);
+        chatPromise.then(function(chatId){
+          if (!chatId) return fallbackEmail();
+          fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text: msg, disable_web_page_preview: true })
+          }).then(function(res){
+            if (res.ok){ showToast('Заявка отправлена в Telegram!'); leadForm.reset(); }
+            else fallbackEmail();
+          }).catch(function(){ fallbackEmail(); });
+        });
+      });
+
+      function showToast(msg){
+        var t = document.getElementById('toast');
+        if (!t) return; t.textContent = msg; t.classList.remove('hidden');
+        setTimeout(function(){ t.classList.add('hidden'); }, 4200);
+      }
+
+      // Chat widget behavior
+      var launcher = document.getElementById('chatLauncher');
+      var panel = document.getElementById('chatPanel');
+      var closePanel = document.getElementById('closePanel');
+      if (launcher && panel) launcher.addEventListener('click', function(){ panel.classList.toggle('hidden'); });
+      if (closePanel && panel) closePanel.addEventListener('click', function(){ panel.classList.add('hidden'); });
+
+      // Update external chat links
+      var tgLink = document.getElementById('tgLink');
+      if (tgLink) tgLink.href = 'https://t.me/' + TELEGRAM_USERNAME;
+      var waLink = document.getElementById('waLink');
+      if (waLink) waLink.href = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Хочу заказать работу.');
+
+    } catch (err) {
+      console.error('Init error:', err);
+    }
+  })();
+</script>
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){
-          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-          m[i].l=1*new Date();
-          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104118064', 'ym');
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104118064', 'ym');
 
-      ym(104118064, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/104118064" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
+    ym(104118064, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/104118064" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>
