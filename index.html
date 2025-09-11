@@ -7,22 +7,17 @@
   <meta name="description" content="Рефераты, курсовые, дипломные, ВКР и другие студенческие работы под ключ. Быстро, анонимно, с гарантией уникальности. Поддержка 24/7." />
   <meta name="theme-color" content="#4F46E5" />
 
-  <!-- Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- TailwindCSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','Segoe UI','Roboto'] },
-          colors: {
-            indigo: { 600: '#4F46E5' },
-            amber: { 400: '#FBBF24' }
-          }
+          colors: { indigo: { 600: '#4F46E5' }, amber: { 400: '#FBBF24' } }
         }
       }
     }
@@ -31,10 +26,10 @@
     html { scroll-behavior: smooth; }
     .fade-in { animation: fadeIn .6s ease both; }
     @keyframes fadeIn { from {opacity:0; transform: translateY(6px)} to {opacity:1; transform: translateY(0)} }
+    .btn-disabled { opacity:.6; cursor:not-allowed; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
-  <!-- Top bar -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
       <a href="#top" class="flex items-center gap-2">
@@ -53,10 +48,12 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section id="top" class="relative overflow-hidden bg-indigo-600">
     <div class="absolute inset-0 opacity-10" aria-hidden="true">
-      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 800 400"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="white" offset="0"/><stop stop-color="white" stop-opacity="0" offset="1"/></linearGradient></defs><circle cx="100" cy="80" r="160" fill="url(#g)"/><circle cx="700" cy="320" r="140" fill="url(#g)"/></svg>
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 800 400">
+        <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="white" offset="0"/><stop stop-color="white" stop-opacity="0" offset="1"/></linearGradient></defs>
+        <circle cx="100" cy="80" r="160" fill="url(#g)"/><circle cx="700" cy="320" r="140" fill="url(#g)"/>
+      </svg>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative">
       <div class="max-w-3xl text-white">
@@ -76,7 +73,6 @@
     </div>
   </section>
 
-  <!-- Why us -->
   <section id="why" class="py-14 sm:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -94,7 +90,6 @@
     </div>
   </section>
 
-  <!-- Services -->
   <section id="services" class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -102,35 +97,16 @@
         <p class="mt-3 text-gray-600">Выберите тип работы — остальное мы сделаем.</p>
       </div>
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Курсовые и дипломные</h3>
-          <p class="mt-1 text-gray-600">Структура, источники, методичка — всё по требованиям кафедры.</p>
-        </article>
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Рефераты, эссе и статьи</h3>
-          <p class="mt-1 text-gray-600">Короткие сроки, чёткая логика, грамотное оформление.</p>
-        </article>
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Контрольные и лабораторные</h3>
-          <p class="mt-1 text-gray-600">Расчёты, чертежи, практические задания — всё в срок.</p>
-        </article>
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">ВКР и магистерские</h3>
-          <p class="mt-1 text-gray-600">Серьёзные научные работы с глубокой проработкой темы.</p>
-        </article>
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Презентации</h3>
-          <p class="mt-1 text-gray-600">Лаконичный дизайн, смысловые слайды и визуальная логика.</p>
-        </article>
-        <article class="rounded-2xl border border-gray-200 p-6 border-gray-200 p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Чертежи и расчёты</h3>
-          <p class="mt-1 text-gray-600">Точные модели и формулы согласно ГОСТ/методичке.</p>
-        </article>
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"><h3 class="font-semibold">Курсовые и дипломные</h3><p class="mt-1 text-gray-600">Структура, источники, методичка — всё по требованиям кафедры.</p></article>
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"><h3 class="font-semibold">Рефераты, эссе и статьи</h3><p class="mt-1 text-gray-600">Короткие сроки, чёткая логика, грамотное оформление.</p></article>
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"><h3 class="font-semibold">Контрольные и лабораторные</h3><p class="mt-1 text-gray-600">Расчёты, чертежи, практические задания — всё в срок.</p></article>
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"><h3 class="font-semibold">ВКР и магистерские</h3><p class="mt-1 text-gray-600">Серьёзные научные работы с глубокой проработкой темы.</p></article>
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"><h3 class="font-semibold">Презентации</h3><p class="mt-1 text-gray-600">Лаконичный дизайн, смысловые слайды и визуальная логика.</p></article>
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"><h3 class="font-semibold">Чертежи и расчёты</h3><p class="mt-1 text-gray-600">Точные модели и формулы согласно ГОСТ/методичке.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- Process -->
   <section id="process" class="py-14 sm:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -146,7 +122,6 @@
     </div>
   </section>
 
-  <!-- Guarantees -->
   <section id="guarantees" class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -162,7 +137,6 @@
     </div>
   </section>
 
-  <!-- Reviews -->
   <section id="reviews" class="py-14 sm:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -189,7 +163,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -217,7 +190,6 @@
     </div>
   </section>
 
-  <!-- Final CTA + Order Form -->
   <section id="order" class="py-16 lg:py-24 bg-indigo-600">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
       <div class="text-white">
@@ -247,81 +219,31 @@
               <option>Другое</option>
             </select>
           </div>
-          <div>
-            <label class="text-sm font-medium">Предмет</label>
-            <input name="subject" type="text" placeholder="Напр.: менеджмент" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required />
-          </div>
-          <div>
-            <label class="text-sm font-medium">Дедлайн</label>
-            <input name="deadline" type="date" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required />
-          </div>
-          <div>
-            <label class="text-sm font-medium">Объём (стр.)</label>
-            <input name="pages" type="number" min="1" placeholder="35" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required />
-          </div>
-          <div>
-            <label class="text-sm font-medium">Требуемая уникальность (%)</label>
-            <input name="unique" type="number" min="0" max="100" step="1" placeholder="75" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" />
-          </div>
-          <div class="sm:col-span-2">
-            <label class="text-sm font-medium">Тема / описание</label>
-            <textarea name="topic" rows="3" placeholder="Кратко опишите тему и требования" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400"></textarea>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="text-sm font-medium">Файл методички (по желанию)</label>
-            <input type="file" name="file" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" />
-          </div>
-          <div>
-            <label class="text-sm font-medium">Как связаться</label>
-            <select name="contact" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400">
-              <option>Telegram</option>
-              <option>WhatsApp</option>
-              <option>Почта</option>
-              <option>Телефон</option>
-            </select>
-          </div>
-          <div>
-            <label class="text-sm font-medium">Ваш контакт</label>
-            <input name="contactValue" type="text" placeholder="@username или +7…" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required />
-          </div>
+          <div><label class="text-sm font-medium">Предмет</label><input name="subject" type="text" placeholder="Напр.: менеджмент" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required /></div>
+          <div><label class="text-sm font-medium">Дедлайн</label><input name="deadline" type="date" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required /></div>
+          <div><label class="text-sm font-medium">Объём (стр.)</label><input name="pages" type="number" min="1" placeholder="35" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required /></div>
+          <div><label class="text-sm font-medium">Требуемая уникальность (%)</label><input name="unique" type="number" min="0" max="100" step="1" placeholder="75" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" /></div>
+          <div class="sm:col-span-2"><label class="text-sm font-medium">Тема / описание</label><textarea name="topic" rows="3" placeholder="Кратко опишите тему и требования" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400"></textarea></div>
+          <div class="sm:col-span-2"><label class="text-sm font-medium">Файл методички (по желанию)</label><input type="file" name="file" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" /></div>
+          <div><label class="text-sm font-medium">Как связаться</label><select name="contact" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400"><option>Telegram</option><option>WhatsApp</option><option>Почта</option><option>Телефон</option></select></div>
+          <div><label class="text-sm font-medium">Ваш контакт</label><input name="contactValue" type="text" placeholder="@username или +7…" class="mt-1 w-full rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-indigo-600 px-3 py-2 placeholder:text-gray-400" required /></div>
         </div>
         <label class="mt-4 flex items-start gap-3 text-sm text-gray-600"><input type="checkbox" required class="mt-1"> Согласен(на) с обработкой данных и политикой конфиденциальности</label>
-        <button class="mt-6 w-full rounded-xl bg-amber-400 px-6 py-3 font-semibold text-gray-900 shadow hover:shadow-lg transition" type="submit">Отправить заявку</button>
+        <button id="leadSubmit" class="mt-6 w-full rounded-xl bg-amber-400 px-6 py-3 font-semibold text-gray-900 shadow hover:shadow-lg transition" type="submit">Отправить заявку</button>
         <p class="mt-3 text-xs text-gray-200">Анонимность и защита данных. Ответим как можно скорее.</p>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-white border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-3 gap-8">
-      <div>
-        <div class="flex items-center gap-2"><span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-white font-bold">S</span><span class="font-semibold">StudyHelp</span></div>
-        <p class="mt-3 text-sm text-gray-600">Быстрые и качественные студенческие работы с гарантией. Анонимно. 24/7.</p>
-      </div>
-      <nav class="text-sm">
-        <h4 class="font-semibold">Навигация</h4>
-        <ul class="mt-3 space-y-2">
-          <li><a href="#why" class="hover:text-indigo-600">Почему мы</a></li>
-          <li><a href="#services" class="hover:text-indigo-600">Услуги</a></li>
-          <li><a href="#process" class="hover:text-indigo-600">Как это работает</a></li>
-          <li><a href="#guarantees" class="hover:text-indigo-600">Гарантии</a></li>
-          <li><a href="#faq" class="hover:text-indigo-600">FAQ</a></li>
-        </ul>
-      </nav>
-      <div class="text-sm">
-        <h4 class="font-semibold">Контакты</h4>
-        <ul class="mt-3 space-y-2">
-          <li>Почта: <a href="mailto:prihodkods@mail.ru" class="hover:text-indigo-600">prihodkods@mail.ru</a></li>
-          <li>Telegram: <a href="https://t.me/prihodkods" target="_blank" class="hover:text-indigo-600">@prihodkods</a></li>
-          <li>WhatsApp: <a href="https://wa.me/79138110841" target="_blank" class="hover:text-indigo-600">+7 913 811 08 41</a></li>
-        </ul>
-      </div>
+      <div><div class="flex items-center gap-2"><span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-white font-bold">S</span><span class="font-semibold">StudyHelp</span></div><p class="mt-3 text-sm text-gray-600">Быстрые и качественные студенческие работы с гарантией. Анонимно. 24/7.</p></div>
+      <nav class="text-sm"><h4 class="font-semibold">Навигация</h4><ul class="mt-3 space-y-2"><li><a href="#why" class="hover:text-indigo-600">Почему мы</a></li><li><a href="#services" class="hover:text-indigo-600">Услуги</a></li><li><a href="#process" class="hover:text-indigo-600">Как это работает</a></li><li><a href="#guarantees" class="hover:text-indigo-600">Гарантии</a></li><li><a href="#faq" class="hover:text-indigo-600">FAQ</a></li></ul></nav>
+      <div class="text-sm"><h4 class="font-semibold">Контакты</h4><ul class="mt-3 space-y-2"><li>Почта: <a href="mailto:prihodkods@mail.ru" class="hover:text-indigo-600">prihodkods@mail.ru</a></li><li>Telegram: <a href="https://t.me/prihodkods" target="_blank" class="hover:text-indigo-600">@prihodkods</a></li><li>WhatsApp: <a href="https://wa.me/79138110841" target="_blank" class="hover:text-indigo-600">+7 913 811 08 41</a></li></ul></div>
     </div>
     <div class="border-t border-gray-200 py-6 text-center text-xs text-gray-500">© <span id="year"></span> StudyHelp. Все права защищены.</div>
   </footer>
 
-  <!-- Floating Chat Widget -->
   <div id="chatWidget" class="fixed bottom-5 right-5 z-50">
     <div id="chatPanel" class="hidden fade-in mb-3 w-72 sm:w-80 rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
       <div class="px-4 py-3 bg-indigo-600 text-white flex items-center justify-between">
@@ -330,21 +252,15 @@
       </div>
       <div class="p-4 space-y-3">
         <a id="tgLink" href="https://t.me/prihodkods" target="_blank" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
-          <div class="flex items-center gap-3"><span class="text-xl">📨</span>
-            <div><div class="font-medium">Telegram</div><div class="text-xs text-gray-500">Написать менеджеру</div></div>
-          </div>
+          <div class="flex items-center gap-3"><span class="text-xl">📨</span><div><div class="font-medium">Telegram</div><div class="text-xs text-gray-500">Написать менеджеру</div></div></div>
           <span class="text-sm font-semibold text-indigo-600">Открыть</span>
         </a>
         <a id="waLink" href="https://wa.me/79138110841?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%83." target="_blank" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
-          <div class="flex items-center gap-3"><span class="text-xl">💬</span>
-            <div><div class="font-medium">WhatsApp</div><div class="text-xs text-gray-500">Быстрый ответ 24/7</div></div>
-          </div>
+          <div class="flex items-center gap-3"><span class="text-xl">💬</span><div><div class="font-medium">WhatsApp</div><div class="text-xs text-gray-500">Быстрый ответ 24/7</div></div></div>
           <span class="text-sm font-semibold text-indigo-600">Открыть</span>
         </a>
         <a href="mailto:prihodkods@mail.ru?subject=%D0%97%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82" class="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3 hover:border-indigo-600 hover:bg-indigo-50 transition">
-          <div class="flex items-center gap-3"><span class="text-xl">✉️</span>
-            <div><div class="font-medium">Email</div><div class="text-xs text-gray-500">prihodkods@mail.ru</div></div>
-          </div>
+          <div class="flex items-center gap-3"><span class="text-xl">✉️</span><div><div class="font-medium">Email</div><div class="text-xs text-gray-500">prihodkods@mail.ru</div></div></div>
           <span class="text-sm font-semibold text-indigo-600">Написать</span>
         </a>
       </div>
@@ -352,27 +268,20 @@
     <button id="chatLauncher" class="rounded-full bg-indigo-600 text-white h-14 w-14 shadow-xl hover:shadow-2xl flex items-center justify-center text-2xl" aria-label="Открыть чат">💬</button>
   </div>
 
-  <!-- Toast -->
   <div id="toast" class="hidden fixed bottom-24 right-5 z-50 rounded-xl bg-gray-900 text-white px-4 py-3 text-sm shadow-lg">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
 
-  <!-- Core Script -->
   <script>
     (function(){
       try {
-        // Year in footer
-        var yEl = document.getElementById('year');
-        if (yEl) yEl.textContent = new Date().getFullYear();
+        var yEl = document.getElementById('year'); if (yEl) yEl.textContent = new Date().getFullYear();
 
-        // Contacts
         var EMAIL_TO = 'prihodkods@mail.ru';
         var TELEGRAM_USERNAME = 'prihodkods';
         var WHATSAPP_PHONE = '79138110841';
 
-        // Telegram Bot (token kept on front for demo; move to serverless for prod)
         var TG_BOT_TOKEN = '8053132638:AAEfZwrb26W6Vlh1XOXnxT07tE0eoCD3rCU';
-        var TG_CHAT_ID = '1298878778'; // hardcoded user chat_id
+        var TG_CHAT_ID = '1298878778';
 
-        // Reviews form (client-side preview)
         var reviewForm = document.getElementById('reviewForm');
         if (reviewForm) reviewForm.addEventListener('submit', function(e){
           e.preventDefault(); e.stopPropagation();
@@ -392,35 +301,47 @@
           showToast('Спасибо за отзыв!');
         });
 
-        // Lead form → Telegram bot (no mailto fallback)
         var leadForm = document.getElementById('leadForm');
+        var leadBtn  = document.getElementById('leadSubmit');
         if (leadForm) leadForm.addEventListener('submit', function(e){
           e.preventDefault(); e.stopPropagation();
+
+          // disable button
+          if (leadBtn) { leadBtn.disabled = true; leadBtn.classList.add('btn-disabled'); }
+
           var form = new FormData(leadForm);
           var p = {}; form.forEach(function(v,k){ p[k]=v; });
 
-          var lines = [
-            '📝 Заявка на расчёт',
-            'Тип: ' + (p.workType || '-'),
-            'Предмет: ' + (p.subject || '-'),
-            'Дедлайн: ' + (p.deadline || '-'),
-            'Объём: ' + (p.pages || '-') + ' стр.',
-            'Уникальность: ' + (p.unique || '-') + '%',
-            'Связаться: ' + (p.contact || '-') + ' — ' + (p.contactValue || '-'),
-            '',
-            'Тема/описание:',
-            (p.topic || '-')
-          ];
-          var msg = lines.join('\n');
+          // HTML-formatted message
+          var parts = [];
+          parts.push('<b>📝 Заявка на расчёт</b>');
+          parts.push('<b>Тип:</b> ' + (p.workType || '-'));
+          parts.push('<b>Предмет:</b> ' + (p.subject || '-'));
+          parts.push('<b>Дедлайн:</b> ' + (p.deadline || '-'));
+          parts.push('<b>Объём:</b> ' + (p.pages || '-') + ' стр.');
+          parts.push('<b>Уникальность:</b> ' + (p.unique || '-') + '%');
+          parts.push('<b>Связаться:</b> ' + (p.contact || '-') + ' — ' + (p.contactValue || '-'));
+          parts.push('');
+          parts.push('<b>Тема/описание:</b>');
+          parts.push((p.topic || '-'));
+          var msg = parts.join('\n');
 
           fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: TG_CHAT_ID, text: msg, disable_web_page_preview: true })
+            body: JSON.stringify({ chat_id: TG_CHAT_ID, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })
           }).then(function(res){
-            if (res.ok){ showToast('Заявка отправлена в Telegram!'); leadForm.reset(); }
-            else { showToast('Не удалось отправить. Проверьте бота/токен.'); }
-          }).catch(function(){ showToast('Сеть недоступна. Попробуйте ещё раз.'); });
+            if (res.ok){
+              showToast('Заявка отправлена в Telegram!');
+              if (window.ym) try { ym(104118064, 'reachGoal', 'lead_submit'); } catch(e){}
+              leadForm.reset();
+            } else {
+              showToast('Не удалось отправить. Проверьте бота/токен.');
+            }
+          }).catch(function(){ showToast('Сеть недоступна. Попробуйте ещё раз.'); })
+          .finally(function(){
+            if (leadBtn) { leadBtn.disabled = false; leadBtn.classList.remove('btn-disabled'); }
+          });
         });
 
         function showToast(msg){
@@ -429,21 +350,16 @@
           setTimeout(function(){ t.classList.add('hidden'); }, 4200);
         }
 
-        // Chat widget behavior
         var launcher = document.getElementById('chatLauncher');
         var panel = document.getElementById('chatPanel');
         var closePanel = document.getElementById('closePanel');
         if (launcher && panel) launcher.addEventListener('click', function(){ panel.classList.toggle('hidden'); });
         if (closePanel && panel) closePanel.addEventListener('click', function(){ panel.classList.add('hidden'); });
 
-        // Update external chat links
-        var tgLink = document.getElementById('tgLink');
-        if (tgLink) tgLink.href = 'https://t.me/' + TELEGRAM_USERNAME;
-        var waLink = document.getElementById('waLink');
-        if (waLink) waLink.href = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Хочу заказать работу.');
-      } catch (err) {
-        console.error('Init error:', err);
-      }
+        var tgLink = document.getElementById('tgLink'); if (tgLink) tgLink.href = 'https://t.me/' + TELEGRAM_USERNAME;
+        var waLink = document.getElementById('waLink'); if (waLink) waLink.href = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Хочу заказать работу.');
+
+      } catch (err) { console.error('Init error:', err); }
     })();
   </script>
 
